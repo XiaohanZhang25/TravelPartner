@@ -1,0 +1,41 @@
+{
+  "name": "travelpartner",
+  "version": "0.0.1",
+  "description": "Your travel assistant",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "gulp dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TravelPartners/TravelPartner.git"
+  },
+  "keywords": [
+    "Travel",
+    "Nodejs"
+  ],
+  "author": "TravelPartners",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TravelPartners/TravelPartner/issues"
+  },
+  "homepage": "https://github.com/TravelPartners/TravelPartner#readme",
+  "devDependencies": {
+    "browser-sync": "^2.23.6",
+    "co": "^4.6.0",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-uglify": "^3.0.0",
+    "merge-stream": "^1.0.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "express-validator": "^5.0.3",
+    "helmet": "^3.12.0",
+    "moment": "^2.21.0",
+    "mongoose": "^5.0.11"
+  }
+}
