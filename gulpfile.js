@@ -41,13 +41,14 @@ gulp.task('build:css', () => {});
  */
 
 gulp.task('dev', ['build:vue', 'build:libs', 'build:template'], () => {
-    console.log('Dev server running...');
+    const port = process.env.PORT || 3000;
+    console.log('Dev server running. Listening port ' + port);
     nodemon({
         script: 'app/server/server.js',
         ext: 'js',
         ignore: ['gulpfile.js', 'app/client', 'public/']
     })
-    browserSync.init(null, { proxy: "localhost:4000"});
+    browserSync.init(null, { proxy: "localhost:" + port});
     gulp.watch(['app/client/index.html'], ['build:template']);
     gulp.watch('public/**', browserSync.reload);
 });
