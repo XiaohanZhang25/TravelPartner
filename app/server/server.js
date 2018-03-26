@@ -1,17 +1,31 @@
 'use strict'
 
-const app = require('express')();
+const fs = require('fs'),
+      helmet = require('helmet');
+
+const config = require('./config');
+
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.use(helmet());
 
 app.use((req, res, next) => {
     console.log(req.headers);
-    console.log(`IP:${req.ip} ${req.method} ${req.path}`);
+    console.log(`New connection. IP:${req.ip} ${req.method} ${req.path}`);
     next();
 });
 
-app.get('/', (req, res) => {
-    res.sendFile('index.html', { root: 'public' });
-});
+if (config.server.staticFile) {
+    let path = config.server.staticPath;
+    if (path === undefined || !fs.existsSync(path)) path = __dirname + "/../../public";
+    app.use(express.static(path));
+    app.use('*', (req, res) => { res.sendFile('index.html', { root: path }) });
+}
 
-app.listen(4000, () => { console.log('Server started.'); });
+app.listen(port, () => {
+    console.log('Server is running. Listening port ' + port);
+});
 
 
