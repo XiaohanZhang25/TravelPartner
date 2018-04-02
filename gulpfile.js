@@ -1,14 +1,17 @@
 'use strict'
 
 var gulp = require('gulp');
-var nodemon = require('gulp-nodemon');
+
 var vueify = require('vueify');
-var browserSync = require('browser-sync').create();
-var merge = require('merge-stream');
-var del = require('del');
 var browserify = require('browserify');
 var babelify = require('babelify');
-var fs = require('fs');
+
+var nodemon = require('gulp-nodemon');
+var browserSync = require('browser-sync').create();
+
+var source = require('vinyl-source-stream');
+var merge = require('merge-stream');
+var del = require('del');
 
 /**
  * Build scripts
@@ -26,7 +29,8 @@ gulp.task('build:vue', () => {
             .transform(vueify)
             .external('vue')
             .bundle()
-            .pipe(fs.createWriteStream("public/dist/js/" + dest));
+            .pipe(source(dest))
+            .pipe(gulp.dest('./public/dist/js'));
     }
 
 });
