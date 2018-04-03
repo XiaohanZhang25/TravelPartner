@@ -35,7 +35,11 @@ gulp.task('build:vue', () => {
 
 });
 
-gulp.task('build:libs', () => {});
+gulp.task('build:libs', () => {
+    let jsFiles = gulp.src('app/client/app/**/*.js').pipe(gulp.dest('public'));
+
+    return jsFiles;
+});
 
 /**
  * Compress scripts
@@ -58,20 +62,24 @@ gulp.task('build:template', () => {
  * Build CSS
  */
 
-gulp.task('build:css', () => {});
+gulp.task('build:css', () => {
+    return gulp
+        .src(['app/client/app/**/*.css'])
+        .pipe(gulp.dest('public'));
+});
 
 /**
  * Dev Server
  */
 
-gulp.task('dev', ['build:vue', 'build:libs', 'build:template'], () => {
+gulp.task('dev', ['build:vue', 'build:libs', 'build:template', 'build:css'], () => {
     const port = process.env.PORT || 3000;
     console.log('Dev server running. Listening port ' + port);
     nodemon({
         script: 'app/server/server.js',
         ext: 'js',
         ignore: ['gulpfile.js', 'app/client', 'public/']
-    })
+    });
     browserSync.init(null, { proxy: "localhost:" + port});
     gulp.watch(['app/client/**', '!app/client/*.html', '!app/client/**/*.html'], ['build:vue']);
     gulp.watch(['app/client/index.html', 'app/client/**/index.html'], ['build:template']);
