@@ -1,19 +1,44 @@
-<!DOCTYPE html>
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>TravelPartner</title>
-
-	      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,500,700,400italic|Material+Icons">
-
-        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
-    </head>
-
-    <body>
-        <div id ="app">
-        </div>
-
-        <script type="text/javascript" src="dist/js/index.js"></script>
-    </body>
+<head>
+  <title>Travel Guide</title>
+  <link rel="stylesheet" type="text/css" href="travelguide.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title>TravelPartner</title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1504.83">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
+    span.s1 {font: 12.0px Helvetica; color: #000000; -webkit-text-stroke: 0px #000000}
+    span.s2 {font-kerning: none}
+  </style>
+</head>
+<body>
+    <h1 id="title">
+        Travel guide
+        <p style="font-size: 24pt; font-weight:bold;">Boston<br></p>
+    <h1>
+    <div id="GuideLists">
+        <button onclick="Upload()"style="font-size: 10pt;color: black;text-align: right;">UploadGuide</button>
+        <p id="Uploadinfo"><br><p>
+        <nav>
+            <a href="http://www.w3school.com.cn/" target="_blank">Chinatown travel guide</a>
+        </nav>
+    </div>
+    <div id="user">
+        <nav>
+            <p style="font-size: 18pt;">User1<br> </p>
+            <p id="Timeinfo"><br><p>
+            
+        </nav>
+    </div>
+    <script>
+        var d = new Date();
+        document.getElementById("Timeinfo").innerHTML = d;
+        function Upload() {
+            document.getElementById("Uploadinfo").innerHTML = Date();
+        }
+    </script>
+</body>
 </html>
