@@ -1,0 +1,68 @@
+body{
+	margin: 0;
+	font-family: Avenir;
+}
+
+#container{
+	width: 50px;
+	margin: 0 auto;
+}
+
+#GuideLists{
+    line-height: 0.5;
+    text-indent: 50px;
+    font-size: 25px;
+    text-transform: none;
+    text-align: left;
+    color: steelblue;
+    background: white;
+    margin: 0;
+}
+#user{
+    text-indent: 70px;
+    font-size: 18px;
+    color: black;
+}
+#title{
+	color: white;
+	text-align: center;
+	background: skyblue;
+	text-transform: uppercase;
+	font-weight: normal;
+    margin: 0;
+}
+
+
+.select{
+	background: steelblue;
+	color: white;
+	transition:all 0.3s;
+	/*add some support to other web explorer*/
+	-webkit-transition:all 0.3s;
+	-moz-transition: all 0.3s;
+
+}
+
+button{
+	font-size: inherit;
+	font-weight: 700;
+	color: steelblue;
+	background: white;
+	border: none;
+	text-transform: uppercase;
+	outline: none; /*turn off the outline when click on the button*/
+}
+
+button:hover{
+	background: steelblue;
+	color: white;
+	transition:all 0.1s;
+	/*add some support to other web explorer*/
+	-webkit-transition:all 0.1s;
+	-moz-transition: all 0.1s;
+}
+
+#message{
+	display: inline-block;
+	width: 20%;
+}
